@@ -1,0 +1,10 @@
+#currentTemp {
+	border-radius: 40px;
+	border-style: solid;
+	background: lightblue;
+	height: 250px;
+	width: 300px;
+	padding-top: 10px;
+
+	display: inline-block;
+}
