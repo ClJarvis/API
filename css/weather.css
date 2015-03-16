@@ -1,10 +1,31 @@
-#currentTemp {
-	border-radius: 40px;
-	border-style: solid;
-	background: lightblue;
-	height: 250px;
-	width: 300px;
-	padding-top: 10px;
+#mainbody {
 
+	float: auto;
 	display: inline-block;
+	width:  3rrent_observation.00px;
+	margin: 0 auto;
 }
+
+
+#currentTemp {
+	border-radius: 30px;
+	border-style: solid;
+	border-width: 1px;
+	height: 260px;
+	width: 227px;
+	padding-top: 10px;
+	margin-top: 30px;
+	margin-left: 10px;
+	padding-left: 25px;
+	padding-right: 25px;
+	display: inline-block;
+
+}
+
+#data {
+	float: auto;
+	font-weight: bold;
+}
+ h1 {
+ 	display: inline-block;
+ }
