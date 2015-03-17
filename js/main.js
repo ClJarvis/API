@@ -33,58 +33,70 @@
 //ASSIGNMENT:  write a function that pulls out the current temp after you add a zipcode to a form and hit submit.
 // It should then display the results in the html body. Apply some nice CSS.
 //make form see screenshot! get api working 1st then figure how to input to form.
-
-// function currentDate() {
-// 	$.ajax({
-// 		url:"http://api.wunderground.com/api/adc9a3f4c89a8f45/conditions/q/37211.json",
-// 		dataType:"jsonp",
-// 		success:function(data){
-// 			console.log(data);
-// 			console.log(data.current_observation.local_time_rfc822);
-// 		}
-// 	})
-
-// }
-
-// currentDate();
-
-// function currentLocation() {
-// 	$.ajax({
-// 		url:"http://api.wunderground.com/api/adc9a3f4c89a8f45/conditions/q/37211.json",
-// 		dataType:"jsonp",
-// 		success:function(data){
-// 			console.log(data);
-// 			console.log("For Zip code: ", data.current_observation.display_location.zip);
-// 		}
-// 	})
-
-// }
-
-// currentLocation();
+var base_url = "http://api.wunderground.com/api/adc9a3f4c89a8f45/conditions/q/";
 
 
 
 
-function currentTemp() {
+
+// var zip_url = "http://api.wunderground.com/api/adc9a3f4c89a8f45/conditions/q/" +  userzip + ".json";
+
+
+function getCurrentTemp() {
+	var userzip=$('#userzip').val();
+	console.log(userzip);
 	$.ajax({
-		url:"http://api.wunderground.com/api/adc9a3f4c89a8f45/conditions/q/37211.json",
+		url: base_url +  userzip + ".json",
 		dataType:"jsonp",
 		success:function(data){
-			console.log(data);
-			console.log(data.current_observation.temp_f, "degrees F"); //data.current_observation.temp_f *//
+				// .log(data);
+			$("#currentDate").after(data.current_observation.local_time_rfc822);
+			$("#zipCode").before("For zipcode: " + data.current_observation.display_location.zip );
+			$("#tempFar").append(data.current_observation.temp_f + " degrees F " );
+			$("#icon").append(data.current_observation.icon);
+			// console.log(userzip, data.current_observation.temp_f); //data.current_observation.temp_f *//
 		}
 	})
 
 }
 
-currentTemp();
+// function getCurrentDate() {
+// 	$.ajax({
+// 		url: base_url +  userzip + ".json",
+// 		dataType:"jsonp",
+// 		success:function(data){
+// 			console.log(data);
+// 			// console.log(userzip, data.current_observation.local_time_rfc822);
+// 			// console.log(data.current_observation.local_time_rfc822);
+// 		}
+// 	})
+
+// }
+
+
+
+// function getCurrentLocation() {
+// 	$.ajax({
+// 		url: base_url +  userzip + ".json",
+// 		dataType:"jsonp",
+// 		success:function(data){
+// 			console.log(data);
+// 			// console.log(userzip, data.current_observation.location.zip);
+// 			// console.log("For Zip code: ", data.current_observation.display_location.zip);
+// 		}
+// 	})
+
+// }
+
+
+
 
 
 // var $zipButton = $ ( this ),
 // 	term = $zipButton.find("input[currentTemp]").val(),
 // 	url = $zipButton.attr("action");
 
-// var posting = $.post( (currentTemp ));
+//  var posting = $.post( (currentTemp ));
 
 // posting.done(function (data) {
 // 	var content = $ ( data ).find ("#content");
@@ -100,16 +112,24 @@ currentTemp();
 //  js_button.append("#currentTemp");
 // });
 
-$( "#zipButton" ).mouseleave(function(data) {
-$( "#currentTemp" ).mouseleave();
-$("#currentDate").after("date<p>");
-$("#zipCode").before("For zipcode:");
-$("#tempFar").after("data.current_observation.temp_f,");
+$( "#zipButton" ).click(function(e) {
+	e.preventDefault();
+	getCurrentTemp();
+	// getCurrentLocation();
+	// getCurrentDate();
 
 });
-console.log("testbutton");
 
 
+ // $("#content").append("Current Temperature in " + location + " is" + " " + temp_f + "<BR/>");
+ //  $("#content").append(" where is my zip" + zipcode + "<BR>")
+
+
+// console.log("testbutton");
+
+// $(document).ready(function() {
+//      $('div.poem-stanza').addClass('highlight');
+// });
 
 //  zipButton.click = function () {
 // 	currentTemp.classList.toggle('hide');
