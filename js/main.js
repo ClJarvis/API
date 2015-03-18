@@ -36,9 +36,6 @@
 var base_url = "http://api.wunderground.com/api/adc9a3f4c89a8f45/conditions/q/";
 
 
-
-
-
 // var zip_url = "http://api.wunderground.com/api/adc9a3f4c89a8f45/conditions/q/" +  userzip + ".json";
 
 
@@ -59,6 +56,63 @@ function getCurrentTemp() {
 	})
 
 }
+
+$( "#zipButton" ).click(function(e) {
+	e.preventDefault();
+	getCurrentTemp();
+	// getCurrentLocation();
+	// getCurrentDate();
+
+});
+
+//  get id by this url "http://ip4.telize.com/`"
+
+// function getCurrentLocation() {
+// 	var userzip=$('#userzip').val();
+// 	// // var ipaddress=$('#ipaddress').val();
+// 	console.log("ipaddress");
+// 	//zipByIp = idAdress
+// 	console.log("zipByIp");
+// 	$.ajax({
+// 		url: base_url +  zipByIp + ".json",
+// 		dataType:"jsonp",
+// 		success:function(data){
+// 				// .log(data);
+// 			$("#currentDate").after(data.current_observation.local_time_rfc822);
+// 			$("#zipCode").before("For zipcode: " + data.current_observation.display_location.zip );
+// 			$("#tempFar").append(data.current_observation.temp_f + " degrees F " );
+// 			$("#icon").append(data.current_observation.icon);
+// 			// console.log(userzip, data.current_observation.temp_f); //data.current_observation.temp_f *//
+// 		}
+// 	})
+
+// }
+
+// $(document).ready(function() {
+
+// var userInput = "";
+// }
+
+// $.get("http://ipinfo.io", function (response) {
+//     // currentTemp(response.postal);
+//     console.log(response.postal);
+//  //    $("#currentDate").after(response.postal);
+// 	// $("#zipCode").before("For zipcode: " + data.current_observation.display_location.zip );
+// 	// $("#tempFar").append(data.current_observation.temp_f + " degrees F " );
+// 	// $("#icon").append(data.current_observation.icon);
+//     // var response=$('#response.postal').val();
+
+
+// }, "jsonp");
+
+// $( "#zipButton" ).onclick(function(e) { ///onload
+// 	e.preventDefault();
+// // 	// getCurrentTemp();
+// 	 getCurrentLocation();
+// 	//getCurrentDate();
+
+// });
+
 
 // function getCurrentDate() {
 // 	$.ajax({
@@ -112,13 +166,6 @@ function getCurrentTemp() {
 //  js_button.append("#currentTemp");
 // });
 
-$( "#zipButton" ).click(function(e) {
-	e.preventDefault();
-	getCurrentTemp();
-	// getCurrentLocation();
-	// getCurrentDate();
-
-});
 
 
  // $("#content").append("Current Temperature in " + location + " is" + " " + temp_f + "<BR/>");
